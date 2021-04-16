@@ -42,9 +42,9 @@ const UNITS = [
   },
   {
     synonyms: ["Mercury year", "Mercury years", "Mercury-year", "Mercury-years", "Mercurial year", "Mercurial years"],
-    factor: 87969 * (24 * 60 * 60) // 87.969 Earth-days = (87,969/1,000) * 1,000 * 24 * 60 * 60
+    factor: 87969 * (24 * 60 * 60), // 87.969 Earth-days = (87,969/1,000) * 1,000 * 24 * 60 * 60
     paradigm: "time",
-  }
+  },
   // CURRENCY UNITS
   {
     synonyms: ["cent", "cents"],
