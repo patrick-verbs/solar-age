@@ -20,6 +20,7 @@ describe("constructor", () => {
     const yearsEarth = new Measurement(basicMeasurement);
     expect((yearsEarth.numerator).number).toEqual(33);
   });
+  // change 'units' to an array, below
   test("should store both a 'number' and 'units' (e.g., years) for a measurement", () => {
     const yearsEarth = new Measurement(basicMeasurement);
     expect((yearsEarth.numerator).number).toEqual(33);
