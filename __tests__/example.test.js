@@ -1,6 +1,6 @@
 import Example from '../src/js/example.js';
 
-describe('Example', () => {
+describe("Example", () => {
   //declare variables
   const number1 = 2;
   const number2 = 3;
