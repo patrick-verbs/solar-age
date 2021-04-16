@@ -27,4 +27,8 @@ class Measurement {
     }
   }
 
+  convertUnit(measurement, stringOfUnits) {
+    return measurement;
+  }
+
 }

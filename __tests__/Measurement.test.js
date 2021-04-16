@@ -35,22 +35,34 @@ describe("constructor", () => {
 });
 
 describe("findUnit", () => {
-  const testUnit = "minutes";
-
+  
   test("should match input units to a unit and its factor from the database", () => {
+    const testUnit = "minutes";
     const testMeasurement = new Measurement( [10, testUnit] );
     const foundUnit = testMeasurement.findUnit(testUnit);
+    expect(foundUnit.factor).toEqual(60000);
+  });
+});
+
+describe("convertUnit", () => {
+  const unconvertedMeasurement = new Measurement( [120, "miles", 1, "hour"] );
+
+  test("should convert an argued measurement to the units specified in an argued string", () => {
+    const convertedMeasurement = unconvertedMeasurement.convertUnit(unconvertedMeasurement, "minutes, miles");
     console.log(`
     *********************
     *********************
   
-    The searched unit-type is: ${testUnit}
-       The found unit-type is: ${foundUnit}, with a multiplication factor of ${foundUnit.factor}
+     The original measurement is: ${(unconvertedMeasurement.numerator).number} ${(unconvertedMeasurement.numerator).units} per ${(unconvertedMeasurement.denominator).number} ${(unconvertedMeasurement.denominator).units}
+    The converted measurement is: ${(convertedMeasurement.numerator).number} ${(convertedMeasurement.numerator).units} per ${(convertedMeasurement.denominator).number} ${(convertedMeasurement.denominator).units}
   
     *********************
     *********************
     `);
-    expect(foundUnit.factor).toEqual(60000);
+    expect((convertedMeasurement.numerator).number).toEqual(1);
+    expect((convertedMeasurement.numerator).units).toEqual("miles");
+    expect((convertedMeasurement.denominator).number).toEqual(1);
+    expect((convertedMeasurement.denominator).units).toEqual("minute");
   });
   
 });
