@@ -1,5 +1,5 @@
 export default function 
 
-storeMeasurement(measurement){
-  this.measurement=measurement;
+storeMeasurement(number){
+  this.number=number;
 }
