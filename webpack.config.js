@@ -1,36 +1,39 @@
-const HtmlWebpackPlugin = require(`html-webpack-plugin`)
-const { CleanWebpackPlugin } = require(`clean-webpack-plugin`)
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: `./src/js/app.js`,
+  entry: './src/main.js',
   output: {
-    path: `${__dirname}/dist`,
-    filename: `bundle.js`,
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  devtool: 'eval-source-map',
+  devServer: {               
+    contentBase: './dist'    
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: `TITLE`,
-      favicon: `src/images/favicon.png`,
-      template: `src/index.html`, // template file
-      filename: `index.html`, // output file
-      inject: true,
-    }),
+      title: 'Intersolar Age Calculator',
+      template: './src/index.html',
+      inject: 'body'
+    })
   ],
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [`style-loader`, `css-loader`, `sass-loader`],
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       },
       {
-        test: /\.(svg|gif|png|eot|woff(2)?|ttf)$/,
-        use: [`url-loader`],
-      },
-    ],
-  },
-  // dev-specific content
-  mode: `development`,
-  devtool: `source-map`,
-  devServer: { contentBase: `./dist` },
-}
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      }
+    ]
+  }
+};
