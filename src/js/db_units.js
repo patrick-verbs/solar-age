@@ -41,10 +41,20 @@ const UNITS = [
     paradigm: "time",
   },
   {
+    synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs"],
+    factor: 36525 * (24 * 60 * 60 * 10),
+    paradigm: "time",
+  },
+  {
     synonyms: ["Mercury year", "Mercury years", "Mercury-year", "Mercury-years", "Mercurial year", "Mercurial years"],
     factor: 87969 * (24 * 60 * 60), // 87.969 Earth-days = (87,969/1,000) * 1,000 * 24 * 60 * 60
     paradigm: "time",
   },
+  // {
+  //   synonyms: ["Jupiter year"],
+  //   factor: 11862 * ,
+  //   paradigm: "time",
+  // }
   // CURRENCY UNITS
   {
     synonyms: ["cent", "cents"],
