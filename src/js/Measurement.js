@@ -17,9 +17,14 @@ class Measurement {
   }
 
   findUnit(unit) {
-    return 1;
-    // loop through the database and match the unit's string to a synonym
-    // return the entire unit object from the database
+    for (let i = 0; i < UNITS.length; i++) {
+      let synonyms = UNITS[i].synonyms;
+      for (let j = 0; j < synonyms.length; j++) {
+        if (unit === synonyms[j]) {
+          return UNITS[i];
+        }
+      }
+    }
   }
 
 }

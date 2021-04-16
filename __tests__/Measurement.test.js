@@ -20,13 +20,11 @@ describe("constructor", () => {
     const yearsEarth = new Measurement(basicMeasurement);
     expect((yearsEarth.numerator).number).toEqual(33);
   });
-
   test("should store both a 'number' and 'units' (e.g., years) for a measurement", () => {
     const yearsEarth = new Measurement(basicMeasurement);
     expect((yearsEarth.numerator).number).toEqual(33);
     expect((yearsEarth.numerator).units).toEqual("years");
   });
-
   test("should store number/units pairs for both a 'numerator' and 'denominator' to support rate-measurements (e.g., miles per hour)", () => {
     const yearsEarth = new Measurement(rateMeasurement);
     expect((yearsEarth.numerator).number).toEqual(60);
@@ -40,7 +38,7 @@ describe("findUnit", () => {
   const testUnit = "minutes";
 
   test("should match input units to a unit and its factor from the database", () => {
-    const testMeasurement = new Measurement( [10, testUnit] )
+    const testMeasurement = new Measurement( [10, testUnit] );
     const foundUnit = testMeasurement.findUnit(testUnit);
     console.log(`
     *********************
