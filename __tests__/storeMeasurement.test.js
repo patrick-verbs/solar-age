@@ -28,20 +28,20 @@ describe("storeMeasurement", () => {
     expect(yearsEarth.units).toEqual("years");
   });
 
-  // test("should store number/units pairs for both a 'numerator' and 'denominator' to support rate-measurements (e.g., miles per hour)", () => {
-  //   const yearsEarth = new storeMeasurement(number, units);
-  //   console.log(`
-  //   *********************
-  //   *********************
+  test("should store number/units pairs for both a 'numerator' and 'denominator' to support rate-measurements (e.g., miles per hour)", () => {
+    const yearsEarth = new storeMeasurement(rateMeasurement);
+    console.log(`
+    *********************
+    *********************
 
-  //   The argued value is: ${numeratorNumber} ${numeratorUnits} per ${denominatorNumber} ${denominatorUnis}
-  //   The stored value is: ${yearsEarth.numerator.number} ${yearsEarth.numerator.units} per ${yearsEarth.denominator.number} ${yearsEarth.denominator.units}
+    The argued value is: ${numeratorNumber} ${numeratorUnits} per ${denominatorNumber} ${denominatorUnits}
+    The stored value is: ${yearsEarth.numerator.number} ${yearsEarth.numerator.units} per ${yearsEarth.denominator.number} ${yearsEarth.denominator.units}
 
-  //   *********************
-  //   *********************
-  //   `)
-  //   expect(yearsEarth.number).toEqual(33);
-  //   expect(yearsEarth.units).toEqual("years");
-  // });
+    *********************
+    *********************
+    `)
+    expect(yearsEarth.number).toEqual(33);
+    expect(yearsEarth.units).toEqual("years");
+  });
 
 });
