@@ -18,7 +18,7 @@ describe("storeMeasurement", () => {
 
   test("should store both a 'number' and 'units' (e.g., years) for a measurement", () => {
     // 
-    const yearsEarth = new storeMeasurement(measurement1);
+    const yearsEarth = new storeMeasurement(number, units);
     console.log(`
     *********************
     *********************
@@ -30,7 +30,7 @@ describe("storeMeasurement", () => {
     *********************
     `)
     expect(yearsEarth.number).toEqual(33);
-    expect(yearsEarth.number).toEqual("years");
+    expect(yearsEarth.units).toEqual("years");
   });
 
 });
