@@ -1,6 +1,7 @@
 import Measurement from '../src/js/Measurement.js';
+import UNITS from './js/db_units.js';
 
-describe("Measurement", () => {
+describe("constructor", () => {
   const number = 33;
   const units = "years";
   const basicMeasurement = [number, units];
@@ -14,7 +15,6 @@ describe("Measurement", () => {
   beforeEach(() => {
     //
   });
-
 
   test("should store a person's age in (Earth-)years and return it in Earth-years", () => {
     const yearsEarth = new Measurement(basicMeasurement);
@@ -34,23 +34,24 @@ describe("Measurement", () => {
     expect((yearsEarth.denominator).number).toEqual(1);
     expect((yearsEarth.denominator).units).toEqual("hour");
   });
+});
 
-// test("should match input units to a unit from the database", () => {
-//   const yearsEarth = new Measurement(rateMeasurement);
-//   console.log(`
-//   *********************
-//   *********************
+describe("findUnit", () => {
+  const testUnit = "minutes";
 
-//   The argued value is: ${rateMeasurement[0]} ${rateMeasurement[1]} per ${rateMeasurement[2]} ${rateMeasurement[3]}
-//   The stored value is: ${(yearsEarth.numerator).number} ${(yearsEarth.numerator).units} per ${(yearsEarth.denominator).number} ${(yearsEarth.denominator).units}
-
-//   *********************
-//   *********************
-//   `)
-//   expect((yearsEarth.numerator).number).toEqual(60);
-//   expect((yearsEarth.numerator).units).toEqual("miles");
-//   expect((yearsEarth.denominator).number).toEqual(1);
-//   expect((yearsEarth.denominator).units).toEqual("hour");
-// });
-
+  test("should match input units to a unit and its factor from the database", () => {
+    foundUnit = findUnit(testUnit);
+    console.log(`
+    *********************
+    *********************
+  
+    The searched unit-type is: ${testUnit}
+       The found unit-type is: ${foundUnit}, with a multiplication factor of ${foundUnit.factor}
+  
+    *********************
+    *********************
+    `)
+    expect(foundUnit.factor).toEqual(60000);
+  });
+  
 });

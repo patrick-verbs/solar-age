@@ -36,13 +36,13 @@ const UNITS = [
     paradigm: "time",
   },
   {
-    synonyms: ["Gaussian yr", "Gaussian yrs", "Gaussian year", "Gaussian years", "gaussian yr", "gaussian yrs", "gaussian year", "gaussian years", "Earth-year", "Earth year", "earth-year", "earth year", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
+    synonyms: ["Gaussian yr", "Gaussian yrs", "Gaussian year", "Gaussian years", "gaussian yr", "gaussian yrs", "gaussian year", "gaussian years", "Earth-year", "Earth year", "earth-year", "earth year", "Earth years", "earth years", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
     factor: (365 * 24 * 60 * 60 * 1000) + 22196000,// an additional 6 hours, 9 minutes, 56 seconds
     paradigm: "time",
   },
   {
-    synonyms: ["Mercury year"],
-    factor: 87969 * (24 * 60 * 60) // 87.969 Earth days = 87,969/1,000 * 1,000 * 24 * 60 * 60
+    synonyms: ["Mercury year", "Mercury years", "Mercury-year", "Mercury-years", "Mercurial year", "Mercurial years"],
+    factor: 87969 * (24 * 60 * 60) // 87.969 Earth-days = (87,969/1,000) * 1,000 * 24 * 60 * 60
     paradigm: "time",
   }
   // CURRENCY UNITS
@@ -57,3 +57,5 @@ const UNITS = [
     paradigm: "currency (United States)",
   }
 ]
+
+export default UNITS;
