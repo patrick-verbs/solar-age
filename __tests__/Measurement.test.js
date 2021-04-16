@@ -1,5 +1,5 @@
 import Measurement from '../src/js/Measurement.js';
-import UNITS from './js/db_units.js';
+import UNITS from '../src/js/db_units.js';
 
 describe("constructor", () => {
   const number = 33;
@@ -40,7 +40,8 @@ describe("findUnit", () => {
   const testUnit = "minutes";
 
   test("should match input units to a unit and its factor from the database", () => {
-    foundUnit = findUnit(testUnit);
+    const testMeasurement = new Measurement( [10, testUnit] )
+    const foundUnit = testMeasurement.findUnit(testUnit);
     console.log(`
     *********************
     *********************
@@ -50,7 +51,7 @@ describe("findUnit", () => {
   
     *********************
     *********************
-    `)
+    `);
     expect(foundUnit.factor).toEqual(60000);
   });
   

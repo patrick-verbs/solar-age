@@ -1,4 +1,4 @@
-import UNITS from './js/db_units.js';
+import UNITS from './db_units';
 export default 
 
 class Measurement {
@@ -17,6 +17,7 @@ class Measurement {
   }
 
   findUnit(unit) {
+    return 1;
     // loop through the database and match the unit's string to a synonym
     // return the entire unit object from the database
   }
