@@ -30,16 +30,16 @@ describe("storeMeasurement", () => {
 
   test("should store number/units pairs for both a 'numerator' and 'denominator' to support rate-measurements (e.g., miles per hour)", () => {
     const yearsEarth = new storeMeasurement(rateMeasurement);
-    // console.log(`
-    // *********************
-    // *********************
+    console.log(`
+    *********************
+    *********************
 
-    // The argued value is: ${rateMeasurement[0]} ${rateMeasurement[1]} per ${rateMeasurement[2]} ${rateMeasurement[3]}
-    // The stored value is: ${(yearsEarth.numerator).number} ${(yearsEarth.numerator).units} per ${(yearsEarth.denominator).number} ${(yearsEarth.denominator).units}
+    The argued value is: ${rateMeasurement[0]} ${rateMeasurement[1]} per ${rateMeasurement[2]} ${rateMeasurement[3]}
+    The stored value is: ${(yearsEarth.numerator).number} ${(yearsEarth.numerator).units} per ${(yearsEarth.denominator).number} ${(yearsEarth.denominator).units}
 
-    // *********************
-    // *********************
-    // `)
+    *********************
+    *********************
+    `)
     expect((yearsEarth.numerator).number).toEqual(60);
     expect((yearsEarth.numerator).units).toEqual("miles");
     expect((yearsEarth.denominator).number).toEqual(1);
