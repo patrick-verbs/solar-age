@@ -19,7 +19,7 @@ This is a template repo for web development with Webpack 4, ESLint, and Jest.
 
 ## Setup/Installation Requirements
 
-- Clone this repo: `$ git clone https://github.com/patrick-verbs/solar-age`
+- Clone this repo: `$ git clone https://github.com/patrick-verbs/`
 - Get things installed: `$ npm i`
 - Get things built: `$ npm run start`
 - This should prompt your browser to open the project on 8080. It's actually pointed at the dist folder, and will update live.
@@ -30,7 +30,7 @@ This is a template repo for web development with Webpack 4, ESLint, and Jest.
 
 ## <a name="License"></a>License
 <details>
-<summary><a href="https://opensource.org/licenses/GPL-3.0"><strong>GPL 3.0</strong></a></summary>
+<summary><a href="https://opensource.org/licenses/MIT"><strong>MIT</strong></a></summary>
 <pre>
 MIT License
 Copyright (c) 2021 Patrick Lee
