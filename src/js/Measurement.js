@@ -28,8 +28,8 @@ class Measurement {
   }
 
   convertUnit(inputMeasurement, outputUnitsAsString) {
-    const numeratorUnits = [(inputMeasurement.numerator).units];
-    const denominatorUnits = [(inputMeasurement.denominator).units];
+    const numeratorUnits = (inputMeasurement.numerator).units;
+    const denominatorUnits = (inputMeasurement.denominator).units;
 
     const numeratorFactors = [(inputMeasurement.numerator).number];
     const denominatorFactors = [(inputMeasurement.denominator).number];
@@ -41,9 +41,9 @@ class Measurement {
     let thisOutputUnit;
     let thisInputUnit;
     for (let i = 0; i < outputUnitsAsArray.length; i++) {
-      thisOutputUnit = findUnit(outputUnitsAsArray[i]);
+      thisOutputUnit = inputMeasurement.findUnit(outputUnitsAsArray[i]);
       for (let j = 0; j < numeratorUnits.length; j++) {
-        thisInputUnit = findUnit(numeratorUnits[j]);
+        thisInputUnit = inputMeasurement.findUnit(numeratorUnits[j]);
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           numeratorFactors.push(thisInputUnit.factor);
           denominatorFactors.push(thisOutputUnit.factor);
@@ -51,7 +51,7 @@ class Measurement {
         }
       }
       for (let j = 0; j < denominatorUnits.length; j++) {
-        thisInputUnit = findUnit(denominatorUnits[j]);
+        thisInputUnit = inputMeasurement.findUnit(denominatorUnits[j]);
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           denominatorFactors.push(thisInputUnit.factor);
           numeratorFactors.push(thisOutputUnit.factor);
@@ -78,7 +78,7 @@ class Measurement {
       ]
     );
 
-    return convertedMeasurement;
+    return 10;//convertedMeasurement;
   }
 
 }
