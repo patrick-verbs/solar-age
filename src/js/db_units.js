@@ -50,6 +50,22 @@ const UNITS = [
     factor: 87969 * (24 * 60 * 60), // 87.969 Earth-days = (87,969/1,000) * 1,000 * 24 * 60 * 60
     paradigm: "time",
   },
+  // DISTANCE UNITS
+  {
+    synonyms: ["inch", "inch", "in"],
+    factor: 1,
+    paradigm: "distance (United States)"
+  },
+  {
+    synonyms: ["foot", "feet", "ft"],
+    factor: 12,
+    paradigm: "distance (United States)"
+  },
+  {
+    synonyms: ["mile", "miles", "mi"],
+    factor: 5280 * 12,
+    paradigm: "distance (United States)"
+  },
   // {
   //   synonyms: ["Jupiter year"],
   //   factor: 11862 * ,
