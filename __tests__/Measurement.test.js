@@ -50,7 +50,7 @@ describe("convertUnit", () => {
   const unconvertedMeasurement = new Measurement( [120, ["miles"], 1, ["hour"]] );
 
   test("should convert an argued measurement to the units specified in an argued string", () => {
-    const convertedMeasurement = unconvertedMeasurement.convertUnit(unconvertedMeasurement, "minutes");
+    const convertedMeasurement = unconvertedMeasurement.convertUnit("minutes");
     console.log(`
     *********************
     *********************
@@ -61,7 +61,7 @@ describe("convertUnit", () => {
     *********************
     *********************
     `);
-    expect((convertedMeasurement.numerator).number).toEqual(1);
+    expect((convertedMeasurement.numerator).number).toEqual(2);
     expect((convertedMeasurement.numerator).units).toEqual(["miles"]);
     expect((convertedMeasurement.denominator).number).toEqual(1);
     expect((convertedMeasurement.denominator).units).toEqual(["minute"]);

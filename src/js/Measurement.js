@@ -18,7 +18,7 @@ class Measurement {
 
   findUnit(unit) {
     for (let i = 0; i < UNITS.length; i++) {
-      let synonyms = UNITS[i].synonyms;
+      let synonyms = UNITS[i].name.synonyms;
       for (let j = 0; j < synonyms.length; j++) {
         if (unit === synonyms[j]) {
           return UNITS[i];
@@ -27,12 +27,12 @@ class Measurement {
     }
   }
 
-  convertUnit(inputMeasurement, outputUnitsAsString) {
-    const numeratorUnits = (inputMeasurement.numerator).units;
-    const denominatorUnits = (inputMeasurement.denominator).units;
+  convertUnit(outputUnitsAsString) {
+    const numeratorUnits = (this.numerator).units;
+    const denominatorUnits = (this.denominator).units;
 
-    const numeratorFactors = [(inputMeasurement.numerator).number];
-    const denominatorFactors = [(inputMeasurement.denominator).number];
+    const numeratorFactors = [(this.numerator).number];
+    const denominatorFactors = [(this.denominator).number];
 
     const outputUnitsAsArray = outputUnitsAsString.split(", ");
     const increasingUnits = [];
@@ -41,21 +41,26 @@ class Measurement {
     let thisOutputUnit;
     let thisInputUnit;
     for (let i = 0; i < outputUnitsAsArray.length; i++) {
-      thisOutputUnit = inputMeasurement.findUnit(outputUnitsAsArray[i]);
+      thisOutputUnit = this.findUnit(outputUnitsAsArray[i]);
+      console.log("***** Output unit paradigm: " + thisOutputUnit.paradigm + " *****")
       for (let j = 0; j < numeratorUnits.length; j++) {
-        thisInputUnit = inputMeasurement.findUnit(numeratorUnits[j]);
+        thisInputUnit = this.findUnit(numeratorUnits[j]);
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           numeratorFactors.push(thisInputUnit.factor);
           denominatorFactors.push(thisOutputUnit.factor);
-          decreasingUnits.push(outputUnitsAsArray[i]);
+          increasingUnits.push(outputUnitsAsArray[i]);
+        } else {
+          increasingUnits.push(thisInputUnit.name.plural);
         }
       }
-      for (let j = 0; j < denominatorUnits.length; j++) {
-        thisInputUnit = inputMeasurement.findUnit(denominatorUnits[j]);
+      for (let k = 0; k < denominatorUnits.length; k++) {
+        thisInputUnit = this.findUnit(denominatorUnits[k]);
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           denominatorFactors.push(thisInputUnit.factor);
           numeratorFactors.push(thisOutputUnit.factor);
-          increasingUnits.push(outputUnitsAsArray[i]);
+          decreasingUnits.push(thisOutputUnit.name.singular);
+        } else {
+          decreasingUnits.push(thisInputUnit.name.singular);
         }
       }
     }
@@ -69,6 +74,9 @@ class Measurement {
       finalDenominator *= denominatorFactors[i];
     }
 
+    finalNumerator /= finalDenominator;
+    finalDenominator = 1;
+
     let convertedMeasurement = new Measurement(
       [
         finalNumerator,
@@ -78,7 +86,7 @@ class Measurement {
       ]
     );
 
-    return 10;//convertedMeasurement;
+    return convertedMeasurement;
   }
 
 }
