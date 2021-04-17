@@ -42,7 +42,7 @@ const UNITS = [
   },
   {
     synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs"],
-    factor: 36525 * (24 * 60 * 60 * 10),
+    factor: 36525 * (24 * 60 * 60 * 10),// this is used in astronomy, e.g. light-years
     paradigm: "time",
   },
   {

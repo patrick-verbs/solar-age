@@ -47,7 +47,7 @@ class Measurement {
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           numeratorFactors.push(thisInputUnit.factor);
           denominatorFactors.push(thisOutputUnit.factor);
-          decreasingUnits.push(outputUnitsAsArray(i));
+          decreasingUnits.push(outputUnitsAsArray[i]);
         }
       }
       for (let j = 0; j < denominatorUnits.length; j++) {
@@ -55,7 +55,7 @@ class Measurement {
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           denominatorFactors.push(thisInputUnit.factor);
           numeratorFactors.push(thisOutputUnit.factor);
-          increasingUnits.push(outputUnitsAsArray(i));
+          increasingUnits.push(outputUnitsAsArray[i]);
         }
       }
     }
@@ -66,7 +66,7 @@ class Measurement {
       finalNumerator *= numeratorFactors[i];
     }
     for (let i = 0; i < denominatorFactors.length; i++) {
-      finalNumerator *= denominator[i];
+      finalDenominator *= denominatorFactors[i];
     }
 
     let convertedMeasurement = new Measurement(

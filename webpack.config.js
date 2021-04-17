@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Example Title',
+      title: 'Intersolar Age Calculator',
       template: './src/index.html',
       inject: 'body'
     })
