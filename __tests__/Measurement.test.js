@@ -47,9 +47,16 @@ describe("findUnit", () => {
 });
 
 describe("convertUnit", () => {
-  const unconvertedMeasurement = new Measurement( [120, ["miles"], 1, ["hour"]] );
+  
+  test("should convert a simple measurement to the units specified in an argued string", () => {
+    const earthAge = new Measurement( [100, ["Earth-years"]] );
+    const mercuryAge = earthAge.convertUnit("Mercury-years");
+    expect(mercuryAge.numerator.number).toEqual(415.2030829042049);
+    expect(mercuryAge.numerator.units).toEqual(["Mercury-years"]);
+  });
 
-  test("should convert an argued measurement to the units specified in an argued string", () => {
+  test("should convert a rate-measurement to the units specified in an argued string", () => {
+    const unconvertedMeasurement = new Measurement( [120, ["miles"], 1, ["hour"]] );
     const convertedMeasurement = unconvertedMeasurement.convertUnit("minutes");
     console.log(`
     *********************

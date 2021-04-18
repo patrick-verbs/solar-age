@@ -29,10 +29,14 @@ class Measurement {
 
   convertUnit(outputUnitsAsString) {
     const numeratorUnits = (this.numerator).units;
-    const denominatorUnits = (this.denominator).units;
-
     const numeratorFactors = [(this.numerator).number];
-    const denominatorFactors = [(this.denominator).number];
+    
+    let denominatorUnits = [];
+    let denominatorFactors = [];
+    if (this.hasOwnProperty("denominator")) {
+      denominatorUnits = (this.denominator).units;
+      denominatorFactors = [(this.denominator).number];
+    }
 
     const outputUnitsAsArray = outputUnitsAsString.split(", ");
     const increasingUnits = [];
@@ -42,7 +46,6 @@ class Measurement {
     let thisInputUnit;
     for (let i = 0; i < outputUnitsAsArray.length; i++) {
       thisOutputUnit = this.findUnit(outputUnitsAsArray[i]);
-      console.log("***** Output unit paradigm: " + thisOutputUnit.paradigm + " *****")
       for (let j = 0; j < numeratorUnits.length; j++) {
         thisInputUnit = this.findUnit(numeratorUnits[j]);
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {

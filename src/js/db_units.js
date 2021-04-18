@@ -76,7 +76,7 @@ const UNITS = [
     name: {
       singular: "Julian year",
       plural: "Julian years",
-      synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs", "Earth-year", "Earth year", "earth-year", "earth year", "Earth years", "earth years", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
+      synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs", "Earth-year", "Earth-years", "Earth year", "earth-year", "earth year", "Earth years", "earth years", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
     },
     factor: 36525 * (24 * 60 * 60 * 10),// this is used in astronomy, e.g. light-years
     paradigm: "time",
