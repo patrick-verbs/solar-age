@@ -49,25 +49,21 @@ describe("findUnit", () => {
 describe("convertUnit", () => {
   
   test("should convert a simple measurement to the units specified in an argued string", () => {
-    const earthAge = new Measurement( [100, ["Earth-years"]] );
-    const mercuryAge = earthAge.convertUnit("Mercury-years");
-    expect(mercuryAge.numerator.number).toEqual(415.2030829042049);
-    expect(mercuryAge.numerator.units).toEqual(["Mercury-years"]);
+    const mercuryAge = new Measurement( [1, ["Mercurial year"]] );
+    const venusAge = new Measurement( [1, ["Venus year"]] );
+    const marsAge = new Measurement( [1, ["Martian year"]] );
+    const jupiterAge = new Measurement( [1, ["Jupiter year"]] );
+
+    expect(mercuryAge.convertUnit("Julian years").numerator.number).toEqual(0.2408459958932238);
+    expect(venusAge.convertUnit("Julian years").numerator.number).toEqual(0.6151900000000001);
+    expect(marsAge.convertUnit("Julian years").numerator.number).toEqual(1.8808240930869267);
+    expect(jupiterAge.convertUnit("Julian years").numerator.number).toEqual(11.862);
   });
 
   test("should convert a rate-measurement to the units specified in an argued string", () => {
     const unconvertedMeasurement = new Measurement( [120, ["miles"], 1, ["hour"]] );
     const convertedMeasurement = unconvertedMeasurement.convertUnit("minutes");
-    console.log(`
-    *********************
-    *********************
-  
-     The original measurement is: ${(unconvertedMeasurement.numerator).number} ${(unconvertedMeasurement.numerator).units} per ${(unconvertedMeasurement.denominator).number} ${(unconvertedMeasurement.denominator).units}
-    The converted measurement is: ${(convertedMeasurement.numerator).number} ${(convertedMeasurement.numerator).units} per ${(convertedMeasurement.denominator).number} ${(convertedMeasurement.denominator).units}
-  
-    *********************
-    *********************
-    `);
+    
     expect((convertedMeasurement.numerator).number).toEqual(2);
     expect((convertedMeasurement.numerator).units).toEqual(["miles"]);
     expect((convertedMeasurement.denominator).number).toEqual(1);

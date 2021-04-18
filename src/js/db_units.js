@@ -92,6 +92,24 @@ const UNITS = [
   },
   {
     name: {
+      singular: "Venus-year",
+      plural: "Venus-years",
+      synonyms: ["Venus year", "Venus years", "Venus-year", "Venus-years"],
+    },
+    factor: 615.19 * 36525 * (24 * 6 * 6),// Venus orbits the Sun in 0.61519 Julian years
+    paradigm: "time",
+  },
+  {
+    name: {
+      singular: "Mars-year",
+      plural: "Mars-years",
+      synonyms: ["Mars year", "Mars years", "Mars-year", "Mars-years", "Martian year", "Martian years"],
+    },
+    factor: 686971 * (24 * 60 * 60), // Mars orbits the Sun in 686.971 Earth-days
+    paradigm: "time",
+  },
+  {
+    name: {
       singular: "Jupiter-year",
       plural: "Jupiter-years",
       synonyms: ["Jupiter year", "Jupiter years", "Jupiter-year", "Jupiter-years", "Jovian year", "Jovian years"],
