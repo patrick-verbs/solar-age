@@ -58,7 +58,7 @@ const UNITS = [
     name: {
       singular: "year",
       plural: "years",
-      synonyms: ["yr", "yrs", "year", "years", "Earth-year", "earth-year"],
+      synonyms: ["yr", "yrs", "year", "years"],
     },
     factor: 365 * 24 * 60 * 60 * 1000,
     paradigm: "time",
@@ -67,7 +67,7 @@ const UNITS = [
     name: {
       singular: "average year",
       plural: "average years",
-      synonyms: ["Gaussian yr", "Gaussian yrs", "Gaussian year", "Gaussian years", "gaussian yr", "gaussian yrs", "gaussian year", "gaussian years", "Earth-year", "Earth year", "earth-year", "earth year", "Earth years", "earth years", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
+      synonyms: ["Gaussian yr", "Gaussian yrs", "Gaussian year", "Gaussian years", "gaussian yr", "gaussian yrs", "gaussian year", "gaussian years"],
     },
     factor: (365 * 24 * 60 * 60 * 1000) + 22196000,// an additional 6 hours, 9 minutes, 56 seconds
     paradigm: "time",
@@ -76,7 +76,7 @@ const UNITS = [
     name: {
       singular: "Julian year",
       plural: "Julian years",
-      synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs"],
+      synonyms: ["Julian yr", "Julian yrs", "Julian year", "Julian years", "julian yr", "julian yrs", "julian year", "julian years", "astronomical year", "astronomical years", "astronomical yr", "astronomical yrs", "Earth-year", "Earth year", "earth-year", "earth year", "Earth years", "earth years", "Earth yr", "earth yr", "avg yr", "avg year", "average yr", "average year"],
     },
     factor: 36525 * (24 * 60 * 60 * 10),// this is used in astronomy, e.g. light-years
     paradigm: "time",
