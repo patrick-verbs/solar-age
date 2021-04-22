@@ -60,8 +60,8 @@ describe("convertUnit", () => {
   });
 
   test("should convert a rate-measurement to the units specified in an argued string", () => {
-    const unconvertedMeasurement = new Measurement( [120, ["miles"], 1, ["hour"]] );
-    const convertedMeasurement = unconvertedMeasurement.convertUnit("minutes");
+    const speed = new Measurement( [120, ["miles"], 1, ["hour"]] );
+    const convertedMeasurement = speed.convertUnit("minutes");
 
     expect((convertedMeasurement.numerator).number).toEqual(2);
     expect((convertedMeasurement.numerator).units).toEqual(["miles"]);
@@ -69,4 +69,14 @@ describe("convertUnit", () => {
     expect((convertedMeasurement.denominator).units).toEqual(["minute"]);
   });
   
+  test("should leave a measurement unchanged if an incompatible conversion is request", () => {
+    const wage = new Measurement( [30, ["dollars"], 1, ["hour"]] );
+    const noConversion = wage.convertUnit("miles");
+
+    expect((noConversion.numerator).number).toEqual(30);
+    expect((noConversion.numerator).units).toEqual(["USD"]);
+    expect((noConversion.denominator).number).toEqual(1);
+    expect((noConversion.denominator).units).toEqual(["hour"]);
+  });
+
 });
