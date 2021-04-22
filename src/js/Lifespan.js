@@ -4,19 +4,16 @@ export default
 class Lifespan {
 
   constructor (lifeform, age) {
-    const lifespan = lifeform.length * 10;
-    console.log(`
-    *****
-    Measurement numerator is: ${lifespan} years
-    *****
-    `);
+    let lifespan = lifeform.length * 10;
     const ageIsJustANumber = age;
-    if (lifespan > ageIsJustANumber) {
-      const differential = new Measurement ( [ (lifespan - ageIsJustANumber), ["earth years"] ] );
-      return differential;
-    } else if (ageIsJustANumber >= lifespan) {
-      const differential = new Measurement ( [ (ageIsJustANumber - lifespan), ["earth years"] ] );
-      return differential;
+    let difference = lifespan - ageIsJustANumber;
+    let darWinner = false;
+    if (difference < 0) {
+      difference *= -1;
+      darWinner = true;
     }
+    lifespan = new Measurement( [ lifespan, ["earth years"] ] );
+    const differential = new Measurement ( [ difference, ["earth years"] ] );
+    return [lifespan, differential, darWinner];
   }
 }
