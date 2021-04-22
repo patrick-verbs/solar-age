@@ -7,12 +7,12 @@ class Measurement {
     this.numerator = {
       number: measurement[0],
       units: measurement[1],
-    }
+    };
     if (measurement.length === 4) {
       this.denominator = {
         number: measurement[2],
         units: measurement[3],
-      }
+      };
     }
   }
 
@@ -29,21 +29,21 @@ class Measurement {
 
   convertUnit(outputUnitsAsString) {
     const numeratorUnits = (this.numerator).units;
-    const numeratorFactors = [(this.numerator).number];
+    const numeratorFactors = [this.numerator.number];
     
     let denominatorUnits = [];
     let denominatorFactors = [];
     if (this.hasOwnProperty("denominator")) {
-      denominatorUnits = (this.denominator).units;
-      denominatorFactors = [(this.denominator).number];
+      denominatorUnits = this.denominator.units;
+      denominatorFactors = [this.denominator.number];
     }
 
     const outputUnitsAsArray = outputUnitsAsString.split(", ");
     const increasingUnits = [];
     const decreasingUnits = [];
 
-    let thisOutputUnit;
     let thisInputUnit;
+    let thisOutputUnit;
     for (let i = 0; i < outputUnitsAsArray.length; i++) {
       thisOutputUnit = this.findUnit(outputUnitsAsArray[i]);
       for (let j = 0; j < numeratorUnits.length; j++) {
@@ -51,7 +51,7 @@ class Measurement {
         if (thisInputUnit.paradigm === thisOutputUnit.paradigm) {
           numeratorFactors.push(thisInputUnit.factor);
           denominatorFactors.push(thisOutputUnit.factor);
-          increasingUnits.push(outputUnitsAsArray[i]);
+          increasingUnits.push(thisOutputUnit.name.plural);
         } else {
           increasingUnits.push(thisInputUnit.name.plural);
         }
@@ -91,5 +91,4 @@ class Measurement {
 
     return convertedMeasurement;
   }
-
 }
