@@ -19,7 +19,10 @@ describe("constructor", () => {
     const godzilla = new Lifespan("Godzilla", 1000);
     const frodo = new Lifespan("Frodo Baggins", 33);
   
+    // Godzilla has exceeded their life expectancy, so this returns "true"
     expect(godzilla[2]).toEqual(true);
+
+    // Frodo has not reached his life expectancy
     expect(frodo[2]).toEqual(false);
   });
 });
