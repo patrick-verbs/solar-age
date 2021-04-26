@@ -1,6 +1,6 @@
 # 
 
-#### Patrick Lee | _[See this project on GitHub Pages](https://patrick-verbs.github.io/)_ _(...when it's live)_
+#### Patrick Lee
 
 ## Technologies Used
 
@@ -14,7 +14,7 @@
 
 ## Description
 
-This is a template repo for web development with Webpack 4, ESLint, and Jest.
+This project is a console-driven "life expectancy calculator" and conversion tool. The assignment's criteria included the conversion an individual's age to the equivalent number of years in "Mercury," "Venus," "Mars," and "Jupiter" reckoning. I thought it would be fun to write a general-purpose "measurement conversion" tool that could be used for any supported units, whether they be Earth-years, Mars-years, minutes, seconds, or complex measurements like rates of speed.
 
 
 ## Setup/Installation Requirements
