@@ -1,10 +1,12 @@
 import Measurement from '../src/js/Measurement.js';
 
 describe("constructor", () => {
+  // Declare variables for simple measurement testing
   const number = 50;
   const units = ["years"];
   const basicMeasurement = [number, units];
 
+  // Declare variables for rate-based measurement testing
   const numeratorNumber = 60;
   const numeratorUnits = ["miles"];
   const denominatorNumber = 1;
@@ -24,7 +26,7 @@ describe("constructor", () => {
     expect(yearsEarth.numerator.units).toEqual(["years"]);
   });
 
-  test("should store number/units pairs for both a 'numerator' and 'denominator' to support rate-measurements (e.g., miles per hour)", () => {
+  test("should store up to two number/units pairs for to support rate-measurements (e.g., miles per hour)", () => {
     const velocity = new Measurement(rateMeasurement);
 
     expect(velocity.numerator.number).toEqual(60);
@@ -36,7 +38,7 @@ describe("constructor", () => {
 
 describe("findUnit", () => {
   
-  test("should match input units to a unit and its factor from the database", () => {
+  test("should match input units to a matching one from the database and get its factor", () => {
     const testUnit = "minutes";
     const testMeasurement = new Measurement( [10, testUnit] );
     const foundUnit = testMeasurement.findUnit(testUnit);
@@ -47,7 +49,7 @@ describe("findUnit", () => {
 
 describe("convertUnit", () => {
   
-  test("should convert a simple measurement to the units specified in an argued string", () => {
+  test("should convert a simple measurement to an alternate set of units", () => {
     const mercuryAge = new Measurement( [1, ["Mercurial year"]] );
     const venusAge = new Measurement( [1, ["Venus year"]] );
     const marsAge = new Measurement( [1, ["Martian year"]] );
@@ -69,7 +71,7 @@ describe("convertUnit", () => {
     expect((convertedMeasurement.denominator).units).toEqual(["minute"]);
   });
   
-  test("should leave a measurement unchanged if an incompatible conversion is request", () => {
+  test("should leave a measurement unchanged if an incompatible conversion is requested", () => {
     const wage = new Measurement( [30, ["dollars"], 1, ["hour"]] );
     const noConversion = wage.convertUnit("miles");
 
