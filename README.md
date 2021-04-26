@@ -4,13 +4,13 @@
 
 ## Technologies Used
 
-- 📄 HTML5
-- 💅 CSS3
+- HTML5
+- CSS3
 - ES6 / JavaScript 2015
 - ESLint
-- ❓ Jest 24.9.0
+- Jest 24.9.0
 - Babel to transpile ES6 for Jest
-- 📦 Webpack 4 for bundling
+- Webpack 4 for bundling
 
 ## Description
 
@@ -19,13 +19,22 @@ This is a template repo for web development with Webpack 4, ESLint, and Jest.
 
 ## Setup/Installation Requirements
 
-- Clone this repo: `$ git clone https://github.com/patrick-verbs/`
-- Get things installed: `$ npm i`
-- Get things built: `$ npm run start`
-- This should prompt your browser to open the project on 8080. It's actually pointed at the dist folder, and will update live.
+### Prerequisites
+* [Node](https://nodejs.org/en/)
+* A text editor like [VS Code](https://code.visualstudio.com/)
+
+### Installation
+1. Clone the repository: `$ git clone https://github.com/patrick-verbs/solar-age`
+2. Navigate to the `solar-age/` directory on your computer
+3. Open the directory with your preferred text editor to view the code base
+4. To start a development server and view the project in the browser:
+    * Navigate to `solar-age/` in your command line
+    * Run the command `$ npm i` or `$ npm install` to install dependencies
+    * Optionally, run the commmand `$ npm run build` to make a bundle of the files
+    * Finally, run the command `$ npm run start` to start a development server
+5. To run tests, navigate to `solar-age/` in your terminal and run the command `$ npm run test`
 
 ## Known Bugs
-
 - none identified
 
 ## <a name="License"></a>License
