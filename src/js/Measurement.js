@@ -35,7 +35,7 @@ class Measurement {
     const numeratorUnits = this.numerator.units;
     const numeratorFactors = [this.numerator.number];
     
-    // There won't always be a denominator (for simple, non-rate measurements), so these begin empty
+    // There won't always be a denominator (for simple, non-rate measurements), so these initialize empty
     let denominatorUnits = [];
     let denominatorFactors = [];
     if (this.hasOwnProperty("denominator")) {

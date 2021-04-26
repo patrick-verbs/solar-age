@@ -8,5 +8,5 @@ import Lifespan from './js/Lifespan.js';
 
 
 $(document).ready(function() {
-  console.log("The 'newExample' object's 'number' property: ");
+  //
 });
