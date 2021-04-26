@@ -1,3 +1,5 @@
+// A "database" of units and their relative factors to one another, for calculating measurement conversions
+// Some of the units included exceed the scope of the project, but are here for testing or demonstrative purposes
 const UNITS = [
   // TIME UNITS
   {
@@ -164,6 +166,6 @@ const UNITS = [
     factor: 100,
     paradigm: "currency (United States)",
   }
-]
+];
 
 export default UNITS;
